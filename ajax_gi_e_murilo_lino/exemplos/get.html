@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo Ajax GET</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <button id="btn">Carregar Mensagem</button>
+  <div id="resultado"></div>
+ 
+  <script>
+    // Quando clicar no botão...
+    $("#btn").click(function() {
+      // Faz uma requisição GET para o servidor
+      $.get("https://jsonplaceholder.typicode.com/posts/1", function(data) {
+        // "data" é a resposta do servidor (em JSON nesse caso)
+        $("#resultado").html("<h3>" + data.title + "</h3><p>" + data.body + "</p>");
+      });
+    });
+  </script>
+</body>
+</html>

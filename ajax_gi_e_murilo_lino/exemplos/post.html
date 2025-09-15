@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo Ajax POST</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <input type="text" id="nome" placeholder="Digite seu nome">
+  <button id="enviar">Enviar</button>
+  <div id="resposta"></div>
+ 
+  <script>
+    // Quando clicar em "Enviar"...
+    $("#enviar").click(function() {
+      // Pega o valor digitado no input
+      let nome = $("#nome").val();
+ 
+      // Faz uma requisição POST
+      $.post("https://jsonplaceholder.typicode.com/posts",
+        { nome: nome }, // Dados que vão para o servidor
+        function(retorno) {
+          // "retorno" é a resposta do servidor
+          $("#resposta").html("Servidor respondeu com ID: " + retorno.id);
+        }
+      );
+    });
+  </script>
+</body>
+</html>
